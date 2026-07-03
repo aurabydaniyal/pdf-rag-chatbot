@@ -1,0 +1,653 @@
+/* ===== Root Variables (Darker Version) ===== */
+:root {
+  --sky-blue: #5BA3C9;
+  --sky-blue-light: #B8D8ED;
+  --sky-blue-dark: #3A7FA3;
+  --desert-brown: #B8966A;
+  --desert-brown-light: #D4B892;
+  --desert-brown-dark: #8A6F4A;
+  --glass-bg: rgba(0, 0, 0, 0.35);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --text-dark: #1A1A2E;
+  --text-light: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #3A7FA3 0%, #8A6F4A 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== Glassmorphism Base (Darker) ===== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-hover:hover {
+  background: rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* ===== App Container ===== */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Starting Page ===== */
+.starting-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background bubbles */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  animation: float 20s infinite ease-in-out;
+}
+
+.bubble:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 10%;
+  animation-delay: -5s;
+}
+
+.bubble:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -10s;
+}
+
+.bubble:nth-child(4) {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  right: 20%;
+  animation-delay: -15s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.1); }
+}
+
+.starting-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease;
+}
+
+.starting-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
+.starting-logo {
+  font-size: 6rem;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.go-button {
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.go-button:hover {
+  transform: scale(1.05);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Chat Interface ===== */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0;
+}
+
+/* ===== Navbar (Darker) ===== */
+.chat-navbar {
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand:hover {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.navbar-docs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* ===== Messages Container (Darker Background) ===== */
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+/* ===== Message Bubbles ===== */
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  animation: slideIn 0.5s ease;
+}
+
+.message-wrapper.user {
+  align-self: flex-end;
+}
+
+.message-wrapper.bot {
+  align-self: flex-start;
+}
+
+.message-wrapper.system {
+  align-self: center;
+  max-width: 90%;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== DARKER MESSAGE BUBBLES ===== */
+.message-bubble {
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  word-wrap: break-word;
+  position: relative;
+}
+
+/* USER messages - Darker with same color scheme */
+.message-bubble.user {
+  background: rgba(0, 0, 0, 0.45);
+  border-bottom-right-radius: 4px;
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* BOT messages - Darker with same color scheme */
+.message-bubble.bot {
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 4px;
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* SYSTEM messages - Darker */
+.message-bubble.system {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.message-timestamp {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin-top: 0.25rem;
+  padding: 0 0.25rem;
+  color: var(--text-light);
+}
+
+.message-wrapper.user .message-timestamp {
+  align-self: flex-end;
+}
+
+/* ===== Sources Section (Darker) ===== */
+.sources-container {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sources-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+}
+
+.source-item {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  padding: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+}
+
+.source-item .source-icon {
+  font-size: 0.6rem;
+}
+
+/* ===== Message Actions (Copy, etc.) ===== */
+.message-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.message-actions:hover {
+  opacity: 1;
+}
+
+.message-actions button {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  transition: background 0.3s ease;
+}
+
+.message-actions button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== DARKER INPUT CONTAINER ===== */
+.input-container {
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+/* ===== DARKER INPUT WRAPPER ===== */
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 16px;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--sky-blue);
+}
+
+.input-wrapper textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  padding: 0.75rem 0.5rem;
+  resize: none;
+  font-family: 'Inter', sans-serif;
+  max-height: 150px;
+  min-height: 44px;
+}
+
+.input-wrapper textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.input-wrapper .upload-btn,
+.input-wrapper .send-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.input-wrapper .upload-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.input-wrapper .send-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.input-wrapper .send-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.input-wrapper .send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Skeleton Loader (Darker) ===== */
+.skeleton {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.06) 25%, 
+    rgba(255, 255, 255, 0.12) 50%, 
+    rgba(255, 255, 255, 0.06) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-line {
+  height: 16px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+.skeleton-line.medium {
+  width: 80%;
+}
+
+/* ===== File Upload Modal (Darker) ===== */
+.file-upload-modal .modal-content {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: var(--text-light);
+}
+
+.file-upload-modal .modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.file-upload-modal .modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dropzone:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dropzone.active {
+  border-color: var(--sky-blue);
+  background: rgba(91, 163, 201, 0.15);
+}
+
+/* ===== Document List ===== */
+.document-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.document-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.document-tag .remove-doc {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.document-tag .remove-doc:hover {
+  opacity: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .starting-title {
+    font-size: 2.5rem;
+  }
+  
+  .starting-subtitle {
+    font-size: 1rem;
+  }
+  
+  .message-wrapper {
+    max-width: 90%;
+  }
+  
+  .input-container {
+    padding: 0.75rem 1rem;
+  }
+  
+  .chat-navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .messages-container {
+    padding: 1rem;
+  }
+  
+  .bubble {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .starting-title {
+    font-size: 2rem;
+  }
+  
+  .go-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .message-bubble {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== Additional Dark Theme Tweaks ===== */
+
+/* Darken the "Upload PDF" button in navbar */
+.chat-navbar .btn-light {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+}
+
+.chat-navbar .btn-light:hover {
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Darken modal close button */
+.file-upload-modal .btn-close {
+  filter: invert(1) brightness(200%);
+}
+
+/* Darken modal buttons */
+.file-upload-modal .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.file-upload-modal .btn-primary {
+  background: rgba(91, 163, 201, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.file-upload-modal .btn-primary:hover {
+  background: rgba(91, 163, 201, 0.4);
+}
+
+/* Darken the dropzone text */
+.dropzone div {
+  color: var(--text-light);
+}
+
+.dropzone div[style*="opacity: 0.7"] {
+  color: var(--text-muted) !important;
+}
