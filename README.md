@@ -37,7 +37,7 @@ pip install -r requirements.txt
 python app.py
 
 cd frontend
-npm install
+npm install # for npm packages
 npm start
 
 ollama serve
