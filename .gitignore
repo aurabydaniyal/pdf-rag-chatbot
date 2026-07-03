@@ -1,0 +1,230 @@
+# ============================================
+# Python (Backend & venv)
+# ============================================
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+pythonenv*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================
+# ChromaDB (Vector Database)
+# ============================================
+
+backend/chroma_db/
+backend/chroma_db/*
+!backend/chroma_db/.gitkeep
+
+# ============================================
+# Uploads (Temporary PDFs)
+# ============================================
+
+backend/uploads/
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# ============================================
+# Backend Logs
+# ============================================
+
+backend/*.log
+backend/logs/
+backend/debug.log
+
+# ============================================
+# Node.js (Frontend)
+# ============================================
+
+# Dependencies
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+
+# Testing
+frontend/coverage/
+
+# Production
+frontend/build/
+frontend/dist/
+
+# Misc
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# npm
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ============================================
+# IDE / Editor Files
+# ============================================
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ / WebStorm / PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# ============================================
+# OS Files
+# ============================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# ============================================
+# Environment Variables
+# ============================================
+
+.env
+.env.local
+.env.*.local
+
+# ============================================
+# Logs & Temporary Files
+# ============================================
+
+*.log
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+
+# ============================================
+# Docker
+# ============================================
+
+docker-compose.override.yml
+*.pid
+*.seed
+
+# ============================================
+# Database
+# ============================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Backup Files
+# ============================================
+
+*.bak
+*.backup
+*.old
+*.orig
+
+# ============================================
+# Project Specific
+# ============================================
+
+# Test PDFs
+test_files/
+*.test.pdf
+sample.pdf
+
+# Backup of chroma_db
+chroma_db_backup/
+chroma_db_backup.zip
